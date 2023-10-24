@@ -314,6 +314,7 @@ class MobileScannerController {
       hasTorch: hasTorch,
       textureId: kIsWeb ? null : startResult['textureId'] as int?,
       webId: kIsWeb ? startResult['ViewID'] as String? : null,
+        sensorRotationDegrees: sensorRotationDegrees,
     );
   }
 

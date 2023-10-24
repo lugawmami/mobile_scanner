@@ -15,10 +15,13 @@ class MobileScannerArguments {
   /// The texture id of the capture used internally if device is web.
   final String? webId;
 
+  final int sensorRotationDegrees;
+
   MobileScannerArguments({
     required this.size,
     required this.hasTorch,
     this.textureId,
     this.webId,
+    this.sensorRotationDegrees = 0,
   });
 }
