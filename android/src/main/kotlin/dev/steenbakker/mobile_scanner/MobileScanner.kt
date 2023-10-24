@@ -322,7 +322,8 @@ class MobileScanner(
                     if (portrait) width else height,
                     if (portrait) height else width,
                     camera!!.cameraInfo.hasFlashUnit(),
-                    textureEntry!!.id()
+                    textureEntry!!.id(),
+                    camera!!.cameraInfo.sensorRotationDegrees
                 )
             )
         }, executor)

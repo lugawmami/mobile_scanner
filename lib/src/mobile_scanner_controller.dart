@@ -17,6 +17,7 @@ class MobileScannerController {
     this.torchEnabled = false,
     this.formats,
     this.returnImage = false,
+    this.sensorRotationDegrees = 0,
     @Deprecated(
       'Instead, use the result of calling `start()` to determine if permissions were granted.',
     )
@@ -39,6 +40,9 @@ class MobileScannerController {
   ///
   /// Only supported on iOS and Android
   final bool returnImage;
+
+  /// Current rotation degrees;
+  final int sensorRotationDegrees;
 
   /// If provided, the scanner will only detect those specific formats
   final List<BarcodeFormat>? formats;
@@ -136,6 +140,7 @@ class MobileScannerController {
     arguments['speed'] = detectionSpeed.rawValue;
     arguments['timeout'] = detectionTimeoutMs;
     arguments['returnImage'] = returnImage;
+    arguments['sensorRotationDegrees'] = sensorRotationDegrees;
 
     /*    if (scanWindow != null) {
       arguments['scanWindow'] = [
