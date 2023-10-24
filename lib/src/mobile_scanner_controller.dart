@@ -134,6 +134,8 @@ class MobileScannerController {
   Map<String, dynamic> _argumentsToMap({CameraFacing? cameraFacingOverride}) {
     final Map<String, dynamic> arguments = {};
 
+
+    print('arguments: $arguments');
     cameraFacingState.value = cameraFacingOverride ?? facing;
     arguments['facing'] = cameraFacingState.value.rawValue;
     arguments['torch'] = torchEnabled;
