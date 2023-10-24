@@ -36,6 +36,7 @@ class Barcode {
 
   /// Creates a new [Barcode] instance from the given [data].
   factory Barcode.fromNative(Map<Object?, Object?> data) {
+    print('Barcode.fromNative ${data}');
     final Map<Object?, Object?>? calendarEvent =
         data['calendarEvent'] as Map<Object?, Object?>?;
     final List<Object?>? corners = data['corners'] as List<Object?>?;
