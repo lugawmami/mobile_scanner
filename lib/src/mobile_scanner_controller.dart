@@ -18,6 +18,7 @@ class MobileScannerController {
     this.formats,
     this.returnImage = false,
     this.sensorRotationDegrees = 0,
+    this.relativeSensorRotationDegrees = 0,
     @Deprecated(
       'Instead, use the result of calling `start()` to determine if permissions were granted.',
     )
@@ -43,6 +44,9 @@ class MobileScannerController {
 
   /// Current rotation degrees;
   final int sensorRotationDegrees;
+
+  /// Current rotation degrees relative to 0
+  final int relativeSensorRotationDegrees;
 
   /// If provided, the scanner will only detect those specific formats
   final List<BarcodeFormat>? formats;
@@ -143,6 +147,7 @@ class MobileScannerController {
     arguments['timeout'] = detectionTimeoutMs;
     arguments['returnImage'] = returnImage;
     arguments['sensorRotationDegrees'] = sensorRotationDegrees;
+    arguments['relativeSensorRotationDegrees'] = relativeSensorRotationDegrees;
     print('arguments: $arguments');
     /*    if (scanWindow != null) {
       arguments['scanWindow'] = [
