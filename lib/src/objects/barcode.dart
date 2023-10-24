@@ -39,7 +39,6 @@ class Barcode {
     print('Barcode.fromNative ${data}');
     final Map<Object?, Object?>? calendarEvent =
         data['calendarEvent'] as Map<Object?, Object?>?;
-    final List<Object?>? corners = data['corners'] as List<Object?>?;
     final Map<Object?, Object?>? contactInfo =
         data['contactInfo'] as Map<Object?, Object?>?;
     final Map<Object?, Object?>? driverLicense =
@@ -60,13 +59,6 @@ class Barcode {
           : CalendarEvent.fromNative(calendarEvent),
       contactInfo:
           contactInfo == null ? null : ContactInfo.fromNative(contactInfo),
-      corners: corners == null
-          ? const <Offset>[]
-          : List.unmodifiable(
-              corners.cast<Map<String, double>>().map((Map<String, double> e) {
-                return Offset(e['x']!, e['y']!);
-              }),
-            ),
       displayValue: data['displayValue'] as String?,
       driverLicense: driverLicense == null
           ? null
