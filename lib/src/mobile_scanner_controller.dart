@@ -135,7 +135,7 @@ class MobileScannerController {
     final Map<String, dynamic> arguments = {};
 
 
-    print('arguments: $arguments');
+
     cameraFacingState.value = cameraFacingOverride ?? facing;
     arguments['facing'] = cameraFacingState.value.rawValue;
     arguments['torch'] = torchEnabled;
@@ -143,7 +143,7 @@ class MobileScannerController {
     arguments['timeout'] = detectionTimeoutMs;
     arguments['returnImage'] = returnImage;
     arguments['sensorRotationDegrees'] = sensorRotationDegrees;
-
+    print('arguments: $arguments');
     /*    if (scanWindow != null) {
       arguments['scanWindow'] = [
         scanWindow!.left,
