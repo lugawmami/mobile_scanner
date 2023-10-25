@@ -177,10 +177,10 @@ class MobileScannerHandler(
                         "textureId" to it.id,
                         "size" to mapOf("width" to it.width, "height" to it.height),
                         "torchable" to it.hasFlashUnit,
-                        sensorRotationDegrees to it.sensorRotationDegrees,
-                        sensorRotationDegrees to it.relativeSensorRotationDegrees,
-                        originalWidth to it.originalWidth,
-                        originalHeight to it.originalHeight
+                        "sensorRotationDegrees" to  it.sensorRotationDegrees,
+                        "sensorRotationDegrees" to it.relativeSensorRotationDegrees,
+                        "originalWidth" to it.originalWidth,
+                        "originalHeight" to it.originalHeight
                     ))
                 },
                 timeout.toLong(),

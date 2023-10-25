@@ -117,13 +117,21 @@ class MobileScanner(
                             barcodeMap,
                             byteArray,
                             bmResult.width,
-                            bmResult.height
+                            bmResult.height,
+                            null,
+                            null,
+                            null,
+                            null
                         )
 
                     } else {
 
                         mobileScannerCallback(
                             barcodeMap,
+                            null,
+                            null,
+                            null,
+                            null,
                             null,
                             null,
                             null
@@ -332,7 +340,7 @@ class MobileScanner(
                     camera!!.cameraInfo.hasFlashUnit(),
                     textureEntry!!.id(),
                     camera!!.cameraInfo.sensorRotationDegrees,
-                    camera!!.cameraInfo.getSensorRotationDegrees(0),
+                    camera!!.cameraInfo.getSensorRotationDegrees(Surface.ROTATION_0),
                     width,
                     height
                 )
