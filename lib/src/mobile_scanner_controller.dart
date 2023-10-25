@@ -327,10 +327,10 @@ class MobileScannerController {
       hasTorch: hasTorch,
       textureId: kIsWeb ? null : startResult['textureId'] as int?,
       webId: kIsWeb ? startResult['ViewID'] as String? : null,
-        sensorRotationDegrees: startResult['sensorRotationDegrees'] as int,
-        relativeSensorRotationDegrees: startResult['relativeSensorRotationDegrees'] as int,
-        originalWidth: startResult['originalWidth'] as double,
-        originalHeight: startResult['originalHeight'] as double,
+        sensorRotationDegrees: int.tryParse(startResult['sensorRotationDegrees'].toString()) ?? 0,
+        relativeSensorRotationDegrees: int.tryParse(startResult['sensorRotationDegrees'].toString()) ?? 0,
+        originalWidth: double.tryParse(startResult['originalWidth'].toString()) ?? 0,
+        originalHeight: double.tryParse(startResult['originalHeight'].toString()) ?? 0,
     );
   }
 
