@@ -321,6 +321,8 @@ class MobileScannerController {
     }
 
     isStarting = false;
+
+    print('startResult: $startResult');
     return startArguments.value = MobileScannerArguments(
       size: size,
       hasTorch: hasTorch,
