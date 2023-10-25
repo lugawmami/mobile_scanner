@@ -27,6 +27,8 @@ import android.hardware.display.DisplayManager
 import android.view.WindowManager
 import android.content.Context
 import android.os.Build
+import android.util.Log
+
 
 
 class MobileScanner(
