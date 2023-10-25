@@ -247,6 +247,9 @@ class MobileScanner(
                     return@SurfaceProvider
                 }
 
+                Log.d("BARCODE",  request.resolution.width.toString())
+                Log.d("BARCODE",  request.resolution.height.toString())
+
                 val texture = textureEntry!!.surfaceTexture()
                 texture.setDefaultBufferSize(
                     request.resolution.width,
