@@ -180,7 +180,7 @@ class MobileScannerHandler(
                         sensorRotationDegrees to it.sensorRotationDegrees,
                         sensorRotationDegrees to it.relativeSensorRotationDegrees,
                         originalWidth to it.originalWidth,
-                        originalHeight toit.originalHeight'
+                        originalHeight to it.originalHeight
                     ))
                 },
                 timeout.toLong(),
