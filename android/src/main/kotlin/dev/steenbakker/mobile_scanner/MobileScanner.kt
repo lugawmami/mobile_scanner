@@ -191,6 +191,8 @@ class MobileScanner(
             windowManager.defaultDisplay.rotation
         }
 
+        Log.d("BARCODE", "rotation: $rotation")
+
         val widthMaxRes = cameraResolution.width
         val heightMaxRes = cameraResolution.height
 
@@ -199,6 +201,7 @@ class MobileScanner(
         } else {
             Size(heightMaxRes, widthMaxRes) // Landscape mode
         }
+        Log.d("BARCODE", "targetResolution: $targetResolution")
         return targetResolution
     }
 
