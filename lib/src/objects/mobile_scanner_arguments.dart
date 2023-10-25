@@ -17,6 +17,8 @@ class MobileScannerArguments {
 
   final int sensorRotationDegrees;
   final int relativeSensorRotationDegrees;
+  final double originalWidth;
+  final double originalHeight;
 
   MobileScannerArguments({
     required this.size,
@@ -25,5 +27,7 @@ class MobileScannerArguments {
     this.webId,
     this.sensorRotationDegrees = 0,
     this.relativeSensorRotationDegrees = 0,
+    this.originalWidth = 0,
+    this.originalHeight = 0,
   });
 }

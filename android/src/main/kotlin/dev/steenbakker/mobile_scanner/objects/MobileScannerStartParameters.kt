@@ -6,5 +6,7 @@ class MobileScannerStartParameters(
     val hasFlashUnit: Boolean,
     val id: Long,
     val sensorRotationDegrees: Int,
-    val relativeSensorRotationDegrees: Int
+    val relativeSensorRotationDegrees: Int,
+    val originalWidth: Double = 0.0,
+    val originalHeight: Double = 0.0
 )

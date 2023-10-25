@@ -332,7 +332,9 @@ class MobileScanner(
                     camera!!.cameraInfo.hasFlashUnit(),
                     textureEntry!!.id(),
                     camera!!.cameraInfo.sensorRotationDegrees,
-                    camera!!.cameraInfo.getSensorRotationDegrees(0)
+                    camera!!.cameraInfo.getSensorRotationDegrees(0),
+                    width,
+                    height
                 )
             )
         }, executor)

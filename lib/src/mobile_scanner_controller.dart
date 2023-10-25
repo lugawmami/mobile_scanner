@@ -19,6 +19,8 @@ class MobileScannerController {
     this.returnImage = false,
     this.sensorRotationDegrees = 0,
     this.relativeSensorRotationDegrees = 0,
+    this.originalWidth = 0,
+    this.originalHeight = 0,
     @Deprecated(
       'Instead, use the result of calling `start()` to determine if permissions were granted.',
     )
@@ -47,6 +49,8 @@ class MobileScannerController {
 
   /// Current rotation degrees relative to 0
   final int relativeSensorRotationDegrees;
+  final double originalWidth;
+  final double originalHeight;
 
   /// If provided, the scanner will only detect those specific formats
   final List<BarcodeFormat>? formats;
@@ -148,6 +152,8 @@ class MobileScannerController {
     arguments['returnImage'] = returnImage;
     arguments['sensorRotationDegrees'] = sensorRotationDegrees;
     arguments['relativeSensorRotationDegrees'] = relativeSensorRotationDegrees;
+    arguments['originalWidth'] = originalWidth;
+    arguments['originalHeight'] = originalHeight;
     print('arguments: $arguments');
     /*    if (scanWindow != null) {
       arguments['scanWindow'] = [
@@ -321,7 +327,10 @@ class MobileScannerController {
       hasTorch: hasTorch,
       textureId: kIsWeb ? null : startResult['textureId'] as int?,
       webId: kIsWeb ? startResult['ViewID'] as String? : null,
-        sensorRotationDegrees: sensorRotationDegrees,
+        sensorRotationDegrees: startResult['sensorRotationDegrees'] as int,
+        relativeSensorRotationDegrees: startResult['relativeSensorRotationDegrees'] as int,
+        originalWidth: startResult['originalWidth'] as double,
+        originalHeight: startResult['originalHeight'] as double,
     );
   }
 
