@@ -39,7 +39,7 @@ class MobileScannerHandler(
 
     private var analyzerResult: MethodChannel.Result? = null
 
-    private val callback: MobileScannerCallback = { barcodes: List<Map<String, Any?>>, image: ByteArray?, width: Int?, height: Int? ->
+    private val callback: MobileScannerCallback = { barcodes: List<Map<String, Any?>>, image: ByteArray?, width: Int?, height: Int?, _: Int?, _ : Int?, _: Double?, _: Double? ->
         if (image != null) {
             barcodeHandler.publishEvent(mapOf(
                 "name" to "barcode",
