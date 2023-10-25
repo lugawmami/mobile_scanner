@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+
 // ignore: unnecessary_import
 import 'dart:typed_data';
 import 'package:flutter/cupertino.dart';
@@ -23,8 +24,7 @@ class MobileScannerController {
     this.originalHeight = 0,
     @Deprecated(
       'Instead, use the result of calling `start()` to determine if permissions were granted.',
-    )
-    this.onPermissionSet,
+    ) this.onPermissionSet,
     this.autoStart = true,
     this.cameraResolution,
   });
@@ -88,14 +88,14 @@ class MobileScannerController {
 
   /// Sets the barcode stream
   final StreamController<BarcodeCapture> _barcodesController =
-      StreamController.broadcast();
+  StreamController.broadcast();
 
   Stream<BarcodeCapture> get barcodes => _barcodesController.stream;
 
   static const MethodChannel _methodChannel =
-      MethodChannel('dev.steenbakker.mobile_scanner/scanner/method');
+  MethodChannel('dev.steenbakker.mobile_scanner/scanner/method');
   static const EventChannel _eventChannel =
-      EventChannel('dev.steenbakker.mobile_scanner/scanner/event');
+  EventChannel('dev.steenbakker.mobile_scanner/scanner/event');
 
   @Deprecated(
     'Instead, use the result of calling `start()` to determine if permissions were granted.',
@@ -107,14 +107,14 @@ class MobileScannerController {
 
   /// A notifier that provides several arguments about the MobileScanner
   final ValueNotifier<MobileScannerArguments?> startArguments =
-      ValueNotifier(null);
+  ValueNotifier(null);
 
   /// A notifier that provides the state of the Torch (Flash)
   final ValueNotifier<TorchState> torchState = ValueNotifier(TorchState.off);
 
   /// A notifier that provides the state of which camera is being used
   late final ValueNotifier<CameraFacing> cameraFacingState =
-      ValueNotifier(facing);
+  ValueNotifier(facing);
 
   /// A notifier that provides zoomScale.
   final ValueNotifier<double> zoomScaleState = ValueNotifier(0.0);
@@ -141,7 +141,6 @@ class MobileScannerController {
   /// Set the starting arguments for the camera
   Map<String, dynamic> _argumentsToMap({CameraFacing? cameraFacingOverride}) {
     final Map<String, dynamic> arguments = {};
-
 
 
     cameraFacingState.value = cameraFacingOverride ?? facing;
@@ -313,7 +312,7 @@ class MobileScannerController {
       );
     } else {
       final Map<Object?, Object?>? sizeInfo =
-          startResult['size'] as Map<Object?, Object?>?;
+      startResult['size'] as Map<Object?, Object?>?;
 
       size = Size(
         sizeInfo?['width'] as double? ?? 0,
@@ -327,10 +326,10 @@ class MobileScannerController {
       hasTorch: hasTorch,
       textureId: kIsWeb ? null : startResult['textureId'] as int?,
       webId: kIsWeb ? startResult['ViewID'] as String? : null,
-        sensorRotationDegrees: int.tryParse(startResult['sensorRotationDegrees'].toString()) ?? 0,
-        relativeSensorRotationDegrees: int.tryParse(startResult['sensorRotationDegrees'].toString()) ?? 0,
-        originalWidth: double.tryParse(startResult['originalWidth'].toString()) ?? 0,
-        originalHeight: double.tryParse(startResult['originalHeight'].toString()) ?? 0,
+      sensorRotationDegrees: int.tryParse(startResult['sensorRotationDegrees'].toString()) ?? 0,
+      relativeSensorRotationDegrees: int.tryParse(startResult['sensorRotationDegrees'].toString()) ?? 0,
+      originalWidth: double.tryParse(startResult['originalWidth'].toString()) ?? 0,
+      originalHeight: double.tryParse(startResult['originalHeight'].toString()) ?? 0,
     );
   }
 
@@ -360,7 +359,7 @@ class MobileScannerController {
     }
 
     torchState.value =
-        torchState.value == TorchState.off ? TorchState.on : TorchState.off;
+    torchState.value == TorchState.off ? TorchState.on : TorchState.off;
 
     await _methodChannel.invokeMethod('torch', torchState.value.rawValue);
   }
@@ -371,9 +370,9 @@ class MobileScannerController {
   Future<void> switchCamera() async {
     await _methodChannel.invokeMethod('stop');
     final CameraFacing facingToUse =
-        cameraFacingState.value == CameraFacing.back
-            ? CameraFacing.front
-            : CameraFacing.back;
+    cameraFacingState.value == CameraFacing.back
+        ? CameraFacing.front
+        : CameraFacing.back;
     await start(cameraFacingOverride: facingToUse);
   }
 
@@ -482,7 +481,7 @@ class MobileScannerController {
                   ),
                   corners: List.unmodifiable(
                     corners.cast<Map<Object?, Object?>>().map(
-                      (Map<Object?, Object?> e) {
+                          (Map<Object?, Object?> e) {
                         return Offset(e['x']! as double, e['y']! as double);
                       },
                     ),
