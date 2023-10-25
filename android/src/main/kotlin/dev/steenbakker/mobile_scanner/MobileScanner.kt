@@ -333,6 +333,11 @@ class MobileScanner(
             val width = resolution.width.toDouble()
             val height = resolution.height.toDouble()
 
+            Log.d("BARCODE", "width: $width")
+            Log.d("BARCODE", "height: $height")
+            Log.d("BARCODE", "sensorRotationDegrees: ${camera!!.cameraInfo.sensorRotationDegrees }")
+            Log.d("BARCODE", "getSensorRotationDegrees: ${camera!!.cameraInfo.getSensorRotationDegrees(Surface.ROTATION_0)}")
+
             mobileScannerStartedCallback(
                 MobileScannerStartParameters(
                     if (portrait) width else height,
